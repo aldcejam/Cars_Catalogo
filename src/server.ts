@@ -1,16 +1,17 @@
 import express from 'express';
+import { router } from './routes';
+import swaggerUi from 'swagger-ui-express';
+import swaggerFile from './swagger.json';
 
 const app = express();
 
 app.use(express.json())
 
-app.get('/', (req, res)=>{
-    return res.json({ola: "ofla"})
-})
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile))
+app.use(router)
 
-app.get("/courses", (req, res)=>{
-    const { name } = req.body
-    return res.json({name})
+app.get("/",(req,res)=>{
+    return res.send()
 })
 
 app.listen(3333)                
