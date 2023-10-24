@@ -1,17 +1,24 @@
 import express from 'express';
-import { router } from './routes';
+import "reflect-metadata";
+
 import swaggerUi from 'swagger-ui-express';
+import { AppDataSource } from './database';
+import { router } from './routes';
 import swaggerFile from './swagger.json';
 
-const app = express();
-
-app.use(express.json())
-
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile))
-app.use(router)
-
-app.get("/",(req,res)=>{
-    return res.send()
+AppDataSource.initialize().then(async ()=>{
+    const app = express();
+    app.listen(3333)
+    
+    app.use(express.json())
+    
+    app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile))
+    app.use(router)
+    
+    app.get("/", (req, res) => {
+        return res.send()
+    })
+    
 })
 
-app.listen(3333)                
+

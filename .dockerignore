@@ -1,0 +1,11 @@
+node_modules
+.git
+.vscode
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3333
+
+CMD ["npm", "run", "dev"]
