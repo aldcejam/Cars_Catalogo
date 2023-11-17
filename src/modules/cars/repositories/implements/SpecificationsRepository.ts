@@ -6,7 +6,7 @@ import {
 } from "../ISpecificationsRepository";
 import { AppDataSource } from "../../../../database";
 
-class SpecificationRepository implements ISpecificationsRepository {
+class SpecificationsRepository implements ISpecificationsRepository {
   private specifications: Repository<Specification>;
  
   constructor() {
@@ -14,10 +14,10 @@ class SpecificationRepository implements ISpecificationsRepository {
   }
   
   async create({ name, description }: ICreateSpecificationDTO): Promise<void> {
-    const specification = this.specifications.create({
+    const specification = Object.assign(new Specification(), {
       name,
       description,
-    });
+    })
 
     await this.specifications.save(specification);
   }
@@ -33,4 +33,4 @@ class SpecificationRepository implements ISpecificationsRepository {
   }
 }
 
-export { SpecificationRepository };
+export { SpecificationsRepository };
