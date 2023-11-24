@@ -9,10 +9,7 @@ class User{
 
     @Column()
     name: string;
-    
-    @Column()
-    username: string;
-
+     
     @Column()
     email: string;
 
@@ -29,6 +26,12 @@ class User{
 
     @CreateDateColumn()
     created_at: Date
+
+    //collum with nullable
+    @Column({
+        nullable: true
+    })
+    avatar: string;
   
     constructor(){
         if(!this.id){

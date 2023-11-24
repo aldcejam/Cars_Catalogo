@@ -15,12 +15,7 @@ export class CreateUsers1699624183669 implements MigrationInterface {
                     {
                         name: "name",
                         type: "varchar",
-                    },
-                    {
-                        name: "username",
-                        type: "varchar",
-                        isUnique: true,
-                    },
+                    }, 
                     {
                         name: "password",
                         type: "varchar",
@@ -42,6 +37,11 @@ export class CreateUsers1699624183669 implements MigrationInterface {
                         name: "created_at",
                         type: "timestamp",
                         default: "now()",
+                    },
+                    {
+                        name: "avatar",
+                        type: "varchar",
+                        isNullable: true,
                     }
                 ]
             })

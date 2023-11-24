@@ -10,8 +10,8 @@ export const AppDataSource = new DataSource({
     username: "postgres",
     password: "postgres",
     database: "rentx",  
-    logging: false,
     synchronize: true,
     subscribers: [],
+    migrations: ["./migrations/*.ts"],
     entities: [Category, Specification, User], 
 }) 
