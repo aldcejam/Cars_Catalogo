@@ -1,7 +1,8 @@
 import { CreateCarController } from "@application/cars/main/createCar/CreateCarController"
-import e, { Router } from "express";
+import { Router } from "express";
 import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
-import { ensureAdmin } from "../middlewares/ensureAdmin";
+import { ensureAdmin } from "../middlewares/ensureAdmin"; 
+import { FindCarsController } from "@application/cars/main/findCars/FindCarsController";
 
 const carsRoutes = Router();
 
@@ -12,5 +13,12 @@ carsRoutes.post(
     ensureAdmin,
     createCarController.handle
 );
+
+const findCarsController = new FindCarsController()
+carsRoutes.get(
+    "/",
+    findCarsController.handle
+);
+
 
 export { carsRoutes }

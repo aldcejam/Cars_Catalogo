@@ -1,14 +1,14 @@
 import { CarsRepositoryInMemory } from '@domain/cars/repositories/main/CarsRepositoryInMemory';
-import { FindAllAvailableCarsUseCase } from "./FindAllAvailableCarsUseCase";
+import { FindCarsUseCase } from "./FindCarsUseCase";
 
-let findAllAvailableCarsUseCase: FindAllAvailableCarsUseCase;
+let findAllAvailableCarsUseCase: FindCarsUseCase;
 let carsRepositoryInMemory: CarsRepositoryInMemory;
 
 describe('Find all available cars', () => {
 
     beforeEach(() => {
         carsRepositoryInMemory = new CarsRepositoryInMemory();
-        findAllAvailableCarsUseCase = new FindAllAvailableCarsUseCase(carsRepositoryInMemory);
+        findAllAvailableCarsUseCase = new FindCarsUseCase(carsRepositoryInMemory);
     });
 
 
@@ -23,7 +23,9 @@ describe('Find all available cars', () => {
             brand: 'Car brand',
             category_id: 'category_id'
         });
-        const carsList = await findAllAvailableCarsUseCase.execute();
+        const carsList = await findAllAvailableCarsUseCase.execute({
+            name: ""
+        });
  
         expect(carsList.length).not.toBe(0);
 

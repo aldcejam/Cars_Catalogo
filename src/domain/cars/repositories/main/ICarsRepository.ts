@@ -1,5 +1,5 @@
 import { Car } from "@domain/cars/entities/Car";
-import { ICreateCarDTO } from "DTOS/cars/CreateCarDTO";
+import { ICreateCarDTO } from "DTOS/cars/ICreateCarDTO";
 
 interface ICarsRepository {
     create({
@@ -14,7 +14,9 @@ interface ICarsRepository {
 
     findByLicensePlate(license_plate: string): Promise<Car>;
     findAvailable(): Promise<Car[]>;
-
+    findAvailableByBrand(brand: string): Promise<Car[]>;
+    findAvailableByCarName(car_name: string): Promise<Car[]>;
+    findAvailableByCategoryID(category_id: string): Promise<Car[]>;
 }
 
 export { ICarsRepository };
