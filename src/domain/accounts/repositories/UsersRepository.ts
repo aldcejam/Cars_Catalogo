@@ -1,7 +1,7 @@
-import { AppDataSource } from "@infra/typeorm";
+import { AppDataSource } from "@shared/typeorm";
 import { Repository } from "typeorm";
 import { User } from "../entities/User";
-import { IUsersRepository } from "@application/accounts/repositories/IUsersRepository";
+import { IUsersRepository } from "./IUsersRepository";
 import { ICreateUserDTO } from "DTOS/accounts/ICreateUserDTO";
 import { IFindByEmailDTO } from "DTOS/accounts/IFindByEmailDTO";
 import { IFindByIdDTO } from "DTOS/accounts/IFindByIdDTO";

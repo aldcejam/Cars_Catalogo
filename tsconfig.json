@@ -17,11 +17,14 @@
         "infrastructure/shared/*"
       ],
       "@errors/*": [
-        "errors/*"
+        "infrastructure/http/errors/*"
       ],
       "@infra/*": [
         "infrastructure/*"
-      ]
+      ],
+      "@domain/*": [
+        "domain/*"
+      ],
     },
     "resolveJsonModule": true,
     "sourceMap": true,

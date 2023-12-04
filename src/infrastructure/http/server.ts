@@ -3,11 +3,11 @@ import "express-async-errors";
 import "reflect-metadata";
 
 import swaggerUi from 'swagger-ui-express';
-import { AppDataSource } from '@infra/typeorm';
+import { AppDataSource } from '@shared/typeorm';
 import "@shared/container"
 import { router } from '@infra/http/routes';
 import swaggerFile from '../../swagger.json';
-import { AppError } from '@errors/AppError';
+import { AppError } from '@errors/AppError'; 
 
 AppDataSource.initialize().then(async ()=>{
     const app = express();
@@ -34,7 +34,7 @@ AppDataSource.initialize().then(async ()=>{
     app.get("/", (req, res) => {
         return res.send()
     })
-    
+  
 })
 
 

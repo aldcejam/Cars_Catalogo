@@ -1,6 +1,6 @@
 import { Repository } from "typeorm";
 import { Category } from "../../entities/Category";
-import { AppDataSource } from "@infra/typeorm";
+import { AppDataSource } from "@shared/typeorm";
 import { ICreateCategoryDTO } from "DTOS/cars/category/ICreateCategoryDTO";
 import { ICategoriesRepository } from "./ICategoriesRepository";
 

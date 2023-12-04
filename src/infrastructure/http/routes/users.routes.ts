@@ -2,10 +2,10 @@ import { Router } from "express";
 import uploadConfig from "@config/upload";
 import multer from "multer";
 import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
-import { CreateUserController } from "@infra/controllers/accounts/CreateUserController";
-import { FindByEmailController } from "@infra/controllers/accounts/FindByEmailController";
-import { FindByIdController } from "@infra/controllers/accounts/FindByIdController";
-import { UpdateUserAvatarController } from "@infra/controllers/accounts/UpdateUserAvatarController";
+import { CreateUserController } from "@application/accounts/createUser/CreateUserController";
+import { FindByEmailController } from "@application/accounts/findByEmail/FindByEmailController";
+import { FindByIdController } from "@application/accounts/findById/FindByIdController";
+import { UpdateUserAvatarController } from "@application/accounts/updateUserAvatar/UpdateUserAvatarController";
 
 const usersRoutes = Router();
 const uploadAvatar = multer(uploadConfig.upload("./tmp/avatar"));

@@ -2,7 +2,7 @@ import { ICreateUserDTO } from "DTOS/accounts/ICreateUserDTO";
 import { IFindByEmailDTO } from "DTOS/accounts/IFindByEmailDTO";
 import { IFindByIdDTO } from "DTOS/accounts/IFindByIdDTO";
 import { IUpdateAvatarDTO } from "DTOS/accounts/IUpdateAvatarDTO";
-import { User } from "domain/accounts/entities/User";
+import { User } from "@domain/accounts/entities/User";
 import { IUsersRepository } from "./IUsersRepository";
 
 class UserRepositoryInMemory implements IUsersRepository {
