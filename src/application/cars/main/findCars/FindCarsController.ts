@@ -5,13 +5,17 @@ import { IFindAvailabeCarsDTO } from "DTOS/cars/IFindAvailabeCarsDTO";
 
 class FindCarsController{ 
     async handle(request: Request, response: Response): Promise<Response> { 
-        const { name, brand, category_id } = request.body as IFindAvailabeCarsDTO;
         const findAllAvailableCarsUseCase = container.resolve(FindCarsUseCase);
-        const cars = await findAllAvailableCarsUseCase.execute({
-            name,
-            brand,
-            category_id
-        });
+        const { name, brand, category_id } = request.query as IFindAvailabeCarsDTO;
+        if (name || brand || category_id) {
+            const cars = await findAllAvailableCarsUseCase.execute({
+                name,
+                brand,
+                category_id
+            });
+            return response.json(cars);
+        }
+        const cars = await findAllAvailableCarsUseCase.execute();
         return response.json(cars);
     } 
 }

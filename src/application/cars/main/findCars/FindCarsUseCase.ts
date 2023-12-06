@@ -10,21 +10,22 @@ class FindCarsUseCase {
         @inject("CarsRepository")
         private carsRepository: ICarsRepository
     ) {}
-    async execute({brand,category_id,name}:IFindAvailabeCarsDTO): Promise<Car[]> {
+    async execute({brand,category_id,name}: IFindAvailabeCarsDTO = {}): Promise<Car[]> {
+        const returnNullIfEmpty = (cars: Car[]) => cars.length === 0 ? null : cars;
         if(name){
             const cars = await this.carsRepository.findAvailableByCarName(name);
-            return cars;
+            return returnNullIfEmpty(cars);
         }
         if(brand){
             const cars = await this.carsRepository.findAvailableByBrand(brand);
-            return cars;
+            return returnNullIfEmpty(cars);
         }
         if(category_id){
             const cars = await this.carsRepository.findAvailableByCategoryID(category_id);
-            return cars;
+            return returnNullIfEmpty(cars);
         } 
         const cars = await this.carsRepository.findAvailable();
-        return cars;
+        return returnNullIfEmpty(cars);
     }
 }
 

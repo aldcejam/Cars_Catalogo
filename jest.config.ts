@@ -4,6 +4,7 @@ const config: Config = {
   bail: true, 
   clearMocks: true, 
   coverageProvider: "v8", 
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
   moduleNameMapper: {
     '^@errors/(.*)$': '<rootDir>/src/infrastructure/http/errors/$1',
     '^@application/(.*)$': '<rootDir>/src/application/$1',
