@@ -1,7 +1,7 @@
 import { Car } from "@domain/cars/entities/Car";
 import { ICarsRepository } from "@domain/cars/repositories/main/ICarsRepository";
 import { AppError } from "@errors/AppError";
-import { ICreateCarDTO } from "DTOS/cars/CreateCarDTO";
+import { ICreateCarDTO } from "DTOS/cars/ICreateCarDTO";
 import { inject, injectable } from "tsyringe";
 
 

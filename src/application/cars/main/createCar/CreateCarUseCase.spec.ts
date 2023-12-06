@@ -1,4 +1,5 @@
-import { ICreateCarDTO } from "DTOS/cars/CreateCarDTO";
+
+import { ICreateCarDTO } from "DTOS/cars/ICreateCarDTO";
 import { CreateCarUseCase } from "./CreateCarUseCase";
 import { CarsRepositoryInMemory } from "@domain/cars/repositories/main/CarsRepositoryInMemory";
 import { AppError } from "@errors/AppError";
